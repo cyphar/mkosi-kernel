@@ -115,7 +115,7 @@ fi
 
 KERNEL_RELEASE=$(make $EXTRA -s kernelrelease)
 mkdir -p "$DESTDIR/usr/lib/modules/$KERNEL_RELEASE"
-make $EXTRA INSTALL_MOD_PATH="$DESTDIR/usr" modules_install
+make $EXTRA INSTALL_MOD_PATH="$DESTDIR" MODLIB="$DESTDIR/usr/lib/modules/$KERNEL_RELEASE" modules_install
 make $EXTRA INSTALL_PATH="$DESTDIR/usr/lib/modules/$KERNEL_RELEASE" "$INSTALL"
 
 if [ -n "$SELFTESTS" ]; then
